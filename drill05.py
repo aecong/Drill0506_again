@@ -43,8 +43,8 @@ def set_new_target_arrow():
     global action
     global frame
     sx, sy = cx, cy  # p1 : 시작점
-    hx, hy = 50, 50
-    # hx, hy = random.randint(0, TUK_WIDTH), random.randint(0, TUK_HEIGHT)    # p2 : 끝점
+    # hx, hy = 50, 50
+    hx, hy = random.randint(0, TUK_WIDTH), random.randint(0, TUK_HEIGHT)    # p2 : 끝점
     t = 0.0
     action = 1 if sx < hx else 0
     frame = 0
