@@ -26,7 +26,6 @@ def handle_events():
             points.append((event.x, TUK_HEIGHT - 1 - event.y))  # 클릭된 위치를 새로운 점에 추가
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
-    pass
 
 
 def reset_world():
@@ -52,7 +51,7 @@ def set_new_target_arrow():
     global frame
     global target_exists
 
-    if points: # points 리스트 안에 남아 있는 점이 있으면,
+    if points:  # points 리스트 안에 남아 있는 점이 있으면,
         sx, sy = cx, cy  # p1 : 시작점
         # hx, hy = 50, 50
         hx, hy = points[0]   # p2 : 끝점
@@ -89,6 +88,8 @@ def update_world():
             cx, cy = hx, hy  # 캐릭터 위치를 목적지 위치와 강제로 정확이 일치 시킴.
             del points[0]   # 목표 지점에 왔기 때문에, 더 이상 필요 없는 점을 삭제
             set_new_target_arrow()
+    elif points:    # 목표 지점이 없는 상황에서, 새로운 목표 지점이 생기면 ..
+        set_new_target_arrow()
 
 
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
